@@ -78,8 +78,9 @@ Make sure you have the following installed:
 RUPS_web_app/
 ├── backend/                 # Backend application
 │   ├── index.js             # Entry point for the backend server
-│   ├── models/              # Mongoose models (optional)
-│   ├── routes/              # API routes (optional)
+│   ├── models/              # Mongoose models
+│   ├── routes/              # API route
+│   ├── controllers/         # Controller functions to handle request logic
 │   └── .env                 # Environment variables for backend
 ├── frontend/                # React frontend application
 │   ├── public/              # Public assets for React
