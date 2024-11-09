@@ -1,0 +1,53 @@
+.header-bg {
+    background-image: url('./images/landingPageImg1.webp');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
+
+
+
+footer p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* calculator */
+.boosting-calculator-wide {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 500px; /* Adjust width as needed */
+    text-align: center;
+}
+
+.calculator-form-wide {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-container-wide {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 10px; /* Make dropdowns bigger */
+}
+
+.btn-primary {
+    width: fit-content; /* Make button smaller */
+    margin-top: 15px;
+}
+
+.calculator-result {
+    margin-top: 20px;
+}
+
+.result-text {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
