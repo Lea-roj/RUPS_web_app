@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get('/', orderController.list);
 router.post('/', orderController.create);
-
+router.put('/:orderId/start', orderController.startDrive);
+router.put('/:orderId/end', orderController.endDrive);
+router.get('/driver/earnings', orderController.getDriverEarnings);
 
 module.exports = router;

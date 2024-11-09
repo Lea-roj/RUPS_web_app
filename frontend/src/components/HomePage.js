@@ -3,7 +3,7 @@ import largeImage from './images/landingPageImg1.webp';
 import './Photos.css';
 import { useNavigate } from 'react-router-dom';
 
-function Photos(){
+function HomePage(){
     const navigate = useNavigate();
     const [currentRank, setCurrentRank] = useState('');
     const [desiredRank, setDesiredRank] = useState('');
@@ -44,7 +44,7 @@ function Photos(){
         <div className="landing-page">
             <header className="jumbotron jumbotron-fluid bg-primary text-light text-center header-bg">
     <div className="container">
-        <h1 className="display-4">Welcome to Your Taxi-Dzuro Service</h1>
+        <h1 className="display-4">Welcome to Your Take-Taxi Service</h1>
         <p className="lead">Get a reliable ride to your destination with just a few taps.</p>
         <hr className="my-4" />
         <p>Whether you're heading to work, the airport, or a night out, we're here to get you there safely and on time.</p>
@@ -90,4 +90,4 @@ function Photos(){
     );
 }
 
-export default Photos;
+export default HomePage;

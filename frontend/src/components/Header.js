@@ -21,9 +21,9 @@ function Header(props) {
                         {context => (
                             context.user ?
                                 <>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/publish">Publish</Link>
-                        </li>
+                        {!context.user.isAdmin && <li className="nav-item">
+                            <Link className="nav-link" to="/publish">Order Taxi</Link>
+                        </li>}
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">Profile</Link>
                         </li>

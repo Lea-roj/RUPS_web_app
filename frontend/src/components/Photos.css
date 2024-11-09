@@ -1,5 +1,5 @@
 .header-bg {
-    background-image: url('./images/landingPageImg1.webp');
+    background-image: url('./images/take-taxi.png');
     background-size: cover;
     background-position: center;
     padding: 100px 0;
@@ -51,3 +51,22 @@ footer p {
 }
 
 
+.header-bg {
+    position: relative;
+}
+
+.header-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha for transparency */
+    z-index: 1; /* Ensure overlay is above the background but below the text */
+}
+
+.header-bg .container {
+    position: relative; /* Position relative to stack above the overlay */
+    z-index: 2; /* Ensure text is above the overlay */
+}

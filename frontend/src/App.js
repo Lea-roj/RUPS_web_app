@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UserContext } from "./userContext";
 import Header from "./components/Header";
-import Photos from "./components/Photos";
+import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import Logout from "./components/Logout";
-import AddPhoto from "./components/AddPhoto";
 import OrdersList from "./components/OrdersList";
 import CreateOrder from "./components/CreateOrder";
 //import PrivateRoute from './components/PrivateRoute';
@@ -49,12 +48,11 @@ function App() {
         setUserContext: updateUserData
       }}>
         <div className="App">
-          <Header title="League Boost"></Header>
+          <Header title="TakeTaxi"></Header>
           <Routes>
-            <Route path="/" exact element={<Photos />}></Route>
+            <Route path="/" exact element={<HomePage />}></Route>
             <Route path="/login" exact element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
-            {/* <Route path="/publish" element={<AddPhoto />}></Route> */}
             <Route path="/publish" element={<CreateOrder />}></Route>
 
 

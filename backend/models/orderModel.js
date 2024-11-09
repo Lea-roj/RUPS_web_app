@@ -5,7 +5,12 @@ const OrderSchema = new mongoose.Schema({
     driver: { type: mongoose.Schema.Types.ObjectId, ref: 'user', default: null }, // Reference to the driver, default is null
     locations: [{ type: [Number], required: true }], // Array of locations [lat, lng]
     price: { type: Number, required: true }, // Calculated price for the order
-    distance: { type: Number, required: true } // Distance for the trip in kilometers
+    distance: { type: Number, required: true }, // Distance for the trip in kilometers
+    status: { 
+        type: String, 
+        enum: ['Pending', 'Accepted', 'In Progress', 'Completed', 'Cancelled'], // Define allowed statuses
+        default: 'Pending' // Default status when order is created
+    }
 });
 
 // Create the Order model

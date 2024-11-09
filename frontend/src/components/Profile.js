@@ -9,6 +9,7 @@ function Profile(){
     const userContext = useContext(UserContext); 
     const [profile, setProfile] = useState({});
     const [totalPrice, setTotalPrice] = useState(0);
+    
 
 
     useEffect(function(){
@@ -17,42 +18,33 @@ function Profile(){
             const res = await fetch("http://localhost:3001/users/profile", {credentials: "include"});
             const data = await res.json();
             prof = data;
+            console.log("prof", data)
+            if(prof.isAdmin){
+                
+                    try {
+                        const res = await fetch('http://localhost:3001/orders/driver/earnings', {
+                            method: 'GET',
+                            credentials: 'include',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        });
+                
+                        if (!res.ok) {
+                            throw new Error('Failed to fetch orders');
+                        }
+                
+                        const data = await res.json();
+                        console.log("Earnings:", data);
+                        setTotalPrice(Number(data.totalEarnings).toFixed(2));
+                    } catch (err) {
+                        setError(err.message);
+                    }
+                
+            }
             setProfile(data);
         }
         getProfile();
-
-
-        const fetchOrders = async () => {
-            try {
-                //const token = localStorage.getItem('token');
-                //console.log("token:", token);
-                const res = await fetch('http://localhost:3001/orders', {
-                    method: 'GET',
-                    credentials: 'include',
-                    headers: {
-                        //'Authorization': `Bearer ${token}`
-                         'Content-Type': 'application/json' 
-                    }
-                });
-
-                if (!res.ok) {
-                    throw new Error('Failed to fetch orders');
-                }
-
-                const data = await res.json();
-
-                const completedOrders = data.filter(order => order.status === "completed" && order.booster._id === prof._id);
-                const totalPrice = completedOrders.reduce((acc, order) => acc + order.price * 0.33, 0);
-                const formattedTotalPrice = totalPrice.toFixed(2);
-                setTotalPrice(formattedTotalPrice);
-
-                setOrders(data);
-            } catch (err) {
-                setError(err.message);
-            }
-        };
-
-        fetchOrders();
 
     }, []);
 
@@ -155,8 +147,7 @@ function Profile(){
                     </div>
                 </div>
             </div>
-            {profile.isAdmin && renderTable(orders, 'in-progress')}
-            {profile.isAdmin && renderTable(orders, 'completed')}
+
 
         </div>
     );
