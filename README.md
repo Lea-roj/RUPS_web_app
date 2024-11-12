@@ -1,4 +1,4 @@
-# RUPS Web App
+# TakeTaxi
 
 This project is a full-stack web application built with an Express backend and a React frontend. It uses MongoDB as the database. Follow these instructions to set up the project:
 
